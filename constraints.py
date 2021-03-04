@@ -38,7 +38,7 @@ class UserOracle:
             self.solver.add(var_assign)
         # now, check if the assignments is satisfactory
         if self.solver.check() == sat:
-            print("proposed solution candidate is satisfactory:")
+            print("proposed solution candidate is satisfactory :-)")
             print(self.solver.model())
             result = True
         else:
@@ -53,6 +53,7 @@ class UserOracle:
         if not result:
             # meaning we have an unsat candidate
             # we want a solution that satisfies all provided constraints, so just use the current solver
+            self.solver.check()
             return self.solver.model()
         else:
             return result
