@@ -31,8 +31,9 @@ def plot_discrete_grid(x,y,start,end,obstacles,sol_index):
 				continue
 			else:
 				plt.plot([i],[j],".b")
-	for obs in obstacles:
-		plt.plot(obs[1], obs[0], ".k")
+	if obstacles:
+		for obs in obstacles:
+			plt.plot(obs[1], obs[0], ".k")
 	for i in sol_index :
 		x1,y1,x2,y2 = get_index(i)
 		plt.arrow(x1,y1,x2 - x1,y2 -y1)
